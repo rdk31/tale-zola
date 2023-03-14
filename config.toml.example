@@ -49,6 +49,12 @@ katex = false
 # If using this, add a value like "UA—XXXXXXXX-X"
 google_analytics = ""
 
+# GoatCounter Analytics
+[extra.goatcounter_analytics]
+enabled = false
+user = "your_user"
+host = "example.com"    # default= goatcounter.com
+
 # Whether to use Disqus globally and set to your disqus id
 # or you can enable the disqus on per post page with `extra.disqus` option
 disqus = false

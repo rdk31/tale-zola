@@ -34,6 +34,18 @@
     </script>
   {% endif %}
 
+  {% if config.extra.goatcounter_analytics.enabled and config.extra.goatcounter_analytics.user %}
+      {% set user = config.extra.goatcounter_analytics.user %}
+      {% set host = config.extra.goatcounter_analytics.host | default(value="goatcounter.com") %}
+      {% set current_path = current_path | default(value="/") %}
+
+      <script data-goatcounter="https://{{ user }}.{{ host }}/count" async src="{{ get_url(path="js/count.js") }}"></script>
+      <noscript>
+          {# EasyList blocks '.com/count?', so we have to use '.com//count' #}
+          <img src="https://{{ user }}.{{ host }}//count?p={{ current_path }}&t={{ page.title | default(value=config.title) }}">
+      </noscript>
+  {% endif %}
+
   {#{ macros::katex() }#}
   {% include "partials/katex.html" %}
 </head>
